@@ -1,0 +1,41 @@
+exec() Inserire, aggiornare e contare le query senza parametri
+query() Select senza parametri
+prepare()->si utilizza quando nella query ci sono dei parametri () 'WHERE calories < ? AND colour LIKE ?' I due punti interrogativi verranno inseriti con un execute()
+            i parametri possono essere impostati anche nominalmente :calories e non ?
+
+Estrarre tutto
+
+$sth = $db->query(“select * from users”);
+$result =  $sth->fetchAll(); 
+
+Equivalente a:
+$sth = $db->prepare(“select * from users”);
+$sth->execute();
+$result =  $sth->fetchAll()
+
+
+
+prepare() con parametri nominali $sth->execute([':calories'=>150, ':color'=>'giallo']); con parametri non nominali ma posizionali $sth->execute([150, 'giallo']);
+
+Invece di sostituire con execute() posso usare i metodi bindValue(), bindParam(), il primo sostituisce il valore alla chiamata, la seconda al momento dell'execute
+
+SELECT:
+$sql = "SELECT * from fruits where id=:id";
+
+$sth= $db->prepare($sql);
+
+$sth->bindParam(':id',$id, PDO::PARAM_INT); Da specificare il tipo
+$sth->execute();
+$data= $sth->fetchAll()
+
+UPDATE:
+esempio completo
+
+$sql = "SELECT * from fruits where id=:id";
+
+$sth= $db->prepare($sql);
+
+$sth->bindParam(':id',$id, PDO::PARAM_INT);
+$sth->execute();
+
+$data= $sth->fetchAll()

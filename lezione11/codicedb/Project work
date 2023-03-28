@@ -1,0 +1,12 @@
+PROJECT WORK (Agile method)
+
+Retospettiva 27/03
+Consegna 17/04
+Jira e Bitbucket (software per commit e comunciazione di gruppo)
+
+Setup, del framework, sul mio pc e su quello di tutti
+
+Quando finisco un task lo committo su develop, quando è completato lo carico su main, dopo aver effettuato il test.
+I tester possono essere più di uno, bisogna controllare sia il codice che l'interfaccia, controllando l'efficenza e leggibilità.
+
+wireframe: disegnare il progetto a livello funzionale ( funzionalità delle varie pagine ) => caricare su Jira
